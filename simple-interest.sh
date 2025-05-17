@@ -1,14 +1,22 @@
-
-# Solicita los datos al usuario
-read -p "Ingrese el capital inicial: " capital
-read -p "Ingrese la tasa de interés (en porcentaje, por ejemplo, 5 para 5%): " tasa
-read -p "Ingrese el tiempo (en años): " tiempo
-
-# Convierte la tasa de porcentaje a decimal
-tasa_decimal=$(echo "$tasa / 100" | bc -l)
-
-# Calcula el interés simple
-interes=$(echo "$capital * $tasa_decimal * $tiempo" | bc -l)
-
-# Muestra el resultado con dos decimales
-printf "El interés simple es: %.2f\n" "$interes"
+       #!/bin/bash
+       # This script calculates simple interest given principal,
+       # annual rate of interest and time period in years.
+       # Do not use this in production. Sample purpose only.
+       # Author: Upkar Lidder (IBM)
+       # Additional Authors:
+       # <your GitHub username>
+       # Input:
+       # p, principal amount
+       # t, time period in years
+       # r, annual rate of interest
+       # Output:
+       # simple interest = p*t*r
+       echo "Enter the principal:"
+       read p
+       echo "Enter rate of interest per year:"
+       read r
+       echo "Enter time period in years:"
+       read t
+       s=`expr $p \* $t \* $r / 100`
+       echo "The simple interest is: "
+       echo $s
